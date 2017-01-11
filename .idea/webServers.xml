@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5a2c2c01-1027-4ebc-b358-b843a14fd54e" name="107.160.37.5" url="http://107.160.37.5">
+        <fileTransfer host="107.160.37.5" port="22" privateKey="$USER_HOME$/.ssh/id_rsa" rootFolder="/var/www/blog/wp-content/themes/terminal-lite" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

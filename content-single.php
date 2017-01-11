@@ -3,42 +3,51 @@
  * @package Terminal Lite
  */
 ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class('single-post'); ?>>
 
-    <header class="entry-header">
-        <h1 class="entry-title"><?php the_title(); ?></h1>
-    </header><!-- .entry-header -->
+  <header class="entry-header">
+    <h1 class="entry-title"><?php the_title(); ?></h1>
+    <em><?php echo get_the_date(); ?></em>
+  </header><!-- .entry-header -->
 
-    <div class="entry-content">
-        <div class="postmeta">
-                	<div class="post-date"><i class="fa fa-user"></i> <?php _e('By','terminal-lite'); ?> <?php echo get_the_author(); ?></div> | 
-                    <div class="post-date"><i class="fa fa-calendar"></i> <?php echo get_the_date(); ?></div>
-                    <div class="post-comment"> | <i class="fa fa-comments-o"></i> <a href="<?php comments_link(); ?>"><?php comments_number(); ?></a></div>
-                    <div class="clear"></div>
-                </div><!-- postmeta -->
-		<?php 
-        if (has_post_thumbnail() ){
-			echo '<div class="post-thumb">';
-            the_post_thumbnail();
-			echo '</div><br />';
-		}
-        ?>
-        <?php the_content(); ?>
-        <?php
-        wp_link_pages( array(
-            'before' => '<div class="page-links">' . __( 'Pages:', 'terminal-lite' ),
-            'after'  => '</div>',
-        ) );
-        ?>
-        <div class="postmeta">
-            <div class="post-categories"><?php the_category( __( ', ', 'terminal-lite' ));?></div>
-            <div class="post-tags"><?php the_tags(' | Tags: ', ', ', '<br />'); ?> </div>
-            <div class="clear"></div>
-        </div><!-- postmeta -->
-    </div><!-- .entry-content -->
-   
-    <footer class="entry-meta">
-        <?php edit_post_link( __( 'Edit', 'terminal-lite' ), '<span class="edit-link">', '</span>' ); ?>
-    </footer><!-- .entry-meta -->
+  <section class="entry-content">
+      <?php
+      if (has_post_thumbnail()) {
+          echo '<div class="post-thumb">';
+          the_post_thumbnail();
+          echo '</div><br />';
+      }
+      ?>
+      <?php the_content(); ?>
+      <?php
+      wp_link_pages(array(
+          'before' => '<div class="page-links">' . __('Pages:', 'terminal-lite'),
+          'after' => '</div>',
+      ));
+      ?>
+  </section>
+
+  <footer class="entry-meta">
+      <?php the_category(__(', ', 'terminal-lite')); ?> <?php the_tags(', ', ', ', '<br />'); ?>
+  </footer>
 
 </article>
+
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="<?php echo the_id() ?>"
+     data-title="<?php echo the_title() ?>" data-url="<?php echo curPageURL() ?>"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"lookerlive"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script>
+<!-- 多说公共JS代码 end-->

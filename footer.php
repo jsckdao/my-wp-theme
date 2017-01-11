@@ -8,14 +8,12 @@
  */
 ?>
 
-	<div class="copyright-wrapper">
-        	<div class="inner">
-                <div class="copyright">
-                    	<p><?php printf(  __( '%1$s %2$s | All Rights Reserved. %3$s', 'terminal-lite' ), get_bloginfo( 'name' ), date_i18n( 'Y' ), __('Powered by WordPress','terminal-lite') ); ?></p>                
-                </div><!-- copyright --><div class="clear"></div>         
-            </div><!-- inner -->
-        </div>
-    </div>
+<?php wp_enqueue_script('myblog-prettify', get_template_directory_uri().'/js/prettify/prettify.js'); ?>
+<script>
+  window.document.addEventListener('load', function() { window.prettyPrint && prettyPrint(); }, true);
+</script>
+
 <?php wp_footer(); ?>
+
 </body>
 </html>
